@@ -1,21 +1,39 @@
+
+
+        <%= form.label :body, class: "text-sm" %><br>
+        <%= form.text_field :body, class: "w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-600 border-coolGray-300 text-coolGray-900" %><br>
+        <% article.errors.full_messages_for(:body).each do |message| %>
+          <div><%= message %> </div>
+        <% end %>
+
+
 <%= form_with model: article do |form| %>
-  <div>
-      <%= form.label :title %><br>
-      <%= form.text_field :title %>
-      <% article.errors.full_messages_for(:title).each do |message| %>
-        <div><%= message %> </div>
-      <% end %>
-    </div>
+  <section class="w-full max-w-2xl px-6 py-4 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+      <h2 class="text-3xl font-semibold text-center text-gray-800 dark:text-white">Write Your Article</h2>
 
-    <div>
-      <%= form.label :body %><br>
-      <%= form.text_field :body %><br>
-      <% article.errors.full_messages_for(:body).each do |message| %>
-        <div><%= message %> </div>
-      <% end %>
-    </div>
+      <div class="mt-6 ">
+          <div class="items-center -mx-2 md:flex">
+              <div class="w-full mx-2">
+                  <%= form.label :title, class: "text-sm"%><br>
+                  <%= form.text_field :title, class: "w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-600 border-coolGray-300 text-coolGray-900" %>
+                  <% article.errors.full_messages_for(:title).each do |message| %>
+                    <div><%= message %> </div>
+                  <% end %>
+                  <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">Name</label>
 
-    <div>
-      <%= form.submit %>
-    </div>
+                  <input class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="text">
+              </div>
+          </div>
+
+          <div class="w-full mt-4">
+              <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">Message</label>
+
+              <textarea class="block w-full h-40 px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"></textarea>
+          </div>
+
+          <div class="flex justify-center mt-6">
+            <%= form.submit "submit", class: "px-4 py-2 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600" %>
+          </div>
+      </div>
+  </section>
 <% end %>

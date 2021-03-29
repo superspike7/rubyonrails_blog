@@ -7,10 +7,19 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header class="p-4 bg-coolGray-100 text-coolGray-800">
+      <div class="container flex justify-between h-16 mx-auto">
+          <p><%= link_to "The Odin Journal", root_path, class: "flex items-center p-2" %></p>
+        <div class="items-center flex-shrink-0 hidden lg:flex">
+          <%= link_to "Write Article", new_article_path, class: "self-center px-8 py-3 font-semibold rounded bg-violet-600 text-coolGray-50" %>
+        </div>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>
